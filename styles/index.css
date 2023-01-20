@@ -1,0 +1,22 @@
+.sheet form .cursor-click {
+  cursor: pointer;
+}
+.sheet form input,
+.sheet form select {
+  background: none;
+  border: 1px solid transparent;
+}
+.sheet form .table {
+  margin: 0;
+  border: 0;
+}
+.sheet form .editor {
+  width: 100%;
+  height: 100%;
+}
+/* Items Sheet */
+/* Actors Sheet */
+.actor.sheet .actor-info .actor-avatar {
+  width: 100px;
+  height: 100px;
+}

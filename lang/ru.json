@@ -16,13 +16,15 @@
     "Common": {
       "Title": "",
       "SubTitle": "",
+      "DelConfirm": "Вы точно хотите удалить?",
       "Description": "Описание",
       "Select": {
         "Yes": "Да",
         "No": "Нет"
       },
       "Buttons": {
-        "Cancel": "Отмена"        
+        "Cancel": "Отмена",
+        "Remove": "Удалить"     
       },
       "Navs": {
         "Properties": "Свойства",

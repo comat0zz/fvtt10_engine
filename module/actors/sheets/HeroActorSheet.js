@@ -138,9 +138,7 @@ export class HeroActorSheet extends BaseActorSheet {
   }
 
   // Удаление предметов из инвентаря персонажа
-  _onActorItemDel(evt) {
-    evt.preventDefault();
-    const item_id = $(evt.currentTarget).closest('tr').attr('item-id'); 
+  async _onActorItemDelConfirm(item_id, html) {
     var items = duplicate(this.actor.system.items);
 
     let newEquips = [];
@@ -152,6 +150,35 @@ export class HeroActorSheet extends BaseActorSheet {
     });
 
     this.actor.update({"system.items": newEquips});
+  }
+
+  async _onActorItemDel(evt) {
+    evt.preventDefault();
+    const item_id = $(evt.currentTarget).closest('tr').attr('item-id');
+
+    const tpl = await renderTemplate(`${game.system_path}/templates/dialogs/sheet-item-del.hbs`);
+    return new Promise(resolve => {
+      const data = {
+        title: game.i18n.localize("CZT.Common.DelConfirm"),
+        content: tpl,
+        buttons: {
+          cancel: {
+            icon: '<i class="fas fa-times"></i>',
+            label: game.i18n.localize("CZT.Common.Buttons.Cancel"),
+            callback: html => resolve({cancelled: true})
+          },
+          yes: {
+            icon: '<i class="fas fa-check"></i>',
+            label: game.i18n.localize("CZT.Common.Buttons.Remove"),
+            callback: html => resolve(this._onActorItemDelConfirm(item_id, html))
+           }        
+        },
+        default: "cancel",
+        close: () => resolve({cancelled: true})
+      }
+      new Dialog(data, null).render(true);
+    });
+    
   }
 
   /** @override */

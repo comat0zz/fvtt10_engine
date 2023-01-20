@@ -10,6 +10,7 @@ export const preloadHandlebarsTemplates = async function () {
     `${game.system_path}/templates/sheets/actors/npc-sheet.hbs`,
 
     `${game.system_path}/templates/dialogs/modify-attrs-roll.hbs`,
+    `${game.system_path}/templates/dialogs/sheet-item-del.hbs`,
 
     `${game.system_path}/templates/chats/weapon-roll.hbs`,
     `${game.system_path}/templates/chats/attrs-roll.hbs`      

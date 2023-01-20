@@ -1,11 +1,11 @@
 import { HeroActorSheet } from "./sheets/HeroActorSheet.js";
 import { EnemyActorSheet } from "./sheets/EnemyActorSheet.js";
-import { NPCActorSheet } from "./sheets/NPCActorSheet.js";
+import { NpcActorSheet } from "./sheets/NpcActorSheet.js";
 
 const actorSheetMappings = {
   hero: HeroActorSheet, 
   enemy: EnemyActorSheet, 
-  npc: NPCActorSheet
+  npc: NpcActorSheet
 };
 
 /**

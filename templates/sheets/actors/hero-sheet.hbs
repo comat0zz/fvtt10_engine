@@ -31,15 +31,15 @@
       <div class="actor-row">
         <div class="actor-column">
   
-          <h3>{{localize "CZT.Actor.itEquips"}}</h3>
+          <h3>{{localize "CZT.Actor.Inventory.itEquips"}}</h3>
           
           <table class="actor-items-equipment">
             {{#each items as |item key|}}
               <tr item-id="{{item.id}}" item-type="{{item.type}}" class="cursor-click">
-                <td><img src="{{item.img}}" alt="{{item.name}}"></td>
+                <td class="table-line-img"><img src="{{item.img}}" alt="{{item.name}}"></td>
                 <td class="sheet-roll-weapon">{{item.name}}</td>
                 <td></td>
-                <td><i class="fa-solid fa-trash sheet-item-del"></i></td>
+                <td class="icon-trash"><i class="fa-solid fa-trash sheet-item-del"></i></td>
               </tr>
             {{else}}
               <tr><td>{{localize "CZT.Actor.Inventory.itNoEquips"}}</td></tr>

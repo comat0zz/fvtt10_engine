@@ -1,4 +1,4 @@
-export class NPCActor extends Actor {
+export class NpcActor extends Actor {
   /** @override */
   prepareBaseData() {
     // Data modifications in this step occur before processing embedded

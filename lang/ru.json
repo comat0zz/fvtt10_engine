@@ -2,7 +2,7 @@
   "ACTOR": {
     "TypeHero": "Герой",
     "TypeEnemy": "Противник",
-    "TypeNPC": "NPC"
+    "TypeNpc": "NPC"
   },
 
   "ITEM": {
@@ -27,7 +27,8 @@
       "Navs": {
         "Properties": "Свойства",
         "Description": "Описание",
-        "Skills": "Навыки"
+        "Skills": "Навыки",
+        "ForNotes": "Для заметок"
       }
     },
 

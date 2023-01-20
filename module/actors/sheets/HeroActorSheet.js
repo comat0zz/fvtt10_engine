@@ -27,6 +27,7 @@ export class HeroActorSheet extends BaseActorSheet {
     context.isWeapons = context.systemData.items.filter((i) => i.type === "weapon");
     context.isArmor = context.systemData.items.filter((i) => i.type === "armor");
     context.isEquip = context.systemData.items.filter((i) => i.type === "equipment");
+    context.items = context.systemData.items;
 
     console.log(context)
     return context;

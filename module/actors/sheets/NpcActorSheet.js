@@ -5,7 +5,7 @@ import { genId } from "../../utils.js";
  * Extend the base Actor document to support attributes and groups with a custom template creation dialog.
  * @extends {Actor}
  */
-export class NPCActorSheet extends BaseActorSheet {
+export class NpcActorSheet extends BaseActorSheet {
 
   /** @override */
   static get defaultOptions() {
@@ -27,6 +27,7 @@ export class NPCActorSheet extends BaseActorSheet {
     context.isWeapons = context.systemData.items.filter((i) => i.type === "weapon");
     context.isArmor = context.systemData.items.filter((i) => i.type === "armor");
     context.isEquip = context.systemData.items.filter((i) => i.type === "equipment");
+    context.items = context.systemData.items;
 
     console.log(context)
     return context;

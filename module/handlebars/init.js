@@ -1,5 +1,5 @@
-import { registerHandlebarsHelpers } from "./handlebars/helpers.js";
-import { preloadHandlebarsTemplates } from "./handlebars/templates.js";
+import { registerHandlebarsHelpers } from "./helpers.js";
+import { preloadHandlebarsTemplates } from "./templates.js";
 
 export const initializeHandlebars = () => {
   registerHandlebarsHelpers();

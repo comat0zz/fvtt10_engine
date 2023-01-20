@@ -1,4 +1,4 @@
-export const registerHandlebarsHelpers() = async function () {
+export const registerHandlebarsHelpers = async function () {
   
   // localize "SYSTEM.WORD.STR." VAL 
   Handlebars.registerHelper('lzCc', function (str, val) {

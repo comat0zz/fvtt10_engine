@@ -1,0 +1,24 @@
+{
+"Item": {
+    "types": [
+      "weapon",
+      "armor",
+      "equipment"
+    ],
+    "templates": {
+      "baseItem": {
+        "description": "",
+        "formula": ""
+      }
+    },
+    "weapon": {
+      "templates": ["baseItem"]
+    },
+    "armor": {
+      "templates": ["baseItem"]
+    },
+    "equipment": {
+      "templates": ["baseItem"]
+    }
+  }
+}

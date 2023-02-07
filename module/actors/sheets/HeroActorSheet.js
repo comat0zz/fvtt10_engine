@@ -1,5 +1,5 @@
 import { BaseActorSheet } from "../BaseActorSheet.js";
-import { genId, getRandomInt } from "../../utils.js";
+import { CztUtility } from "../../utils.js";
 
 /**
  * Extend the base Actor document to support attributes and groups with a custom template creation dialog.
@@ -193,7 +193,7 @@ export class HeroActorSheet extends BaseActorSheet {
     let items = this.actor.system.items;
 
     let newItem = {
-      "id": genId(),
+      "id": CztUtility.genId(),
       "item_id": item_id,
       "name": item.name,
       "img": item.img,

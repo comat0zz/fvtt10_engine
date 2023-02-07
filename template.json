@@ -13,13 +13,19 @@
       }
     },
     "hero": {
-      "templates": ["baseActor"]
+      "templates": [
+        "baseActor"
+      ]
     },
     "enemy": {
-      "templates": ["baseActor"]
+      "templates": [
+        "baseActor"
+      ]
     },
     "npc": {
-      "templates": ["baseActor"]
+      "templates": [
+        "baseActor"
+      ]
     }
   },
   "Item": {
@@ -35,13 +41,19 @@
       }
     },
     "weapon": {
-      "templates": ["baseItem"]
+      "templates": [
+        "baseItem"
+      ]
     },
     "armor": {
-      "templates": ["baseItem"]
+      "templates": [
+        "baseItem"
+      ]
     },
     "equipment": {
-      "templates": ["baseItem"]
+      "templates": [
+        "baseItem"
+      ]
     }
   }
 }

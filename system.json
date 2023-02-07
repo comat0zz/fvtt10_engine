@@ -1,8 +1,8 @@
 {
   "id": "fvtt10_engine",
   "title": "fvtt10_engine",
-  "description": "",
-  "version": "0.1",
+  "description": "Болванка наработок под проекты разработки",
+  "version": "0.2.0",
   "compatibility": {
     "minimum": "10",
     "verified": "10.291"
@@ -21,7 +21,20 @@
     "styles/index.css"
   ],
   "packs": [
-    
+    {
+      "name": "items",
+      "label": "Снаряжение",
+      "system": "fvtt10_engine",
+      "path": "packs/items.db",
+      "type": "Item"
+    },
+    {
+      "name": "actors",
+      "label": "Персонажи",
+      "system": "fvtt10_engine",
+      "path": "packs/actors.db",
+      "type": "Actor"
+    }
   ],
   "languages": [
     {
@@ -36,5 +49,5 @@
   "gridUnits": "m",
   "url": "https://github.com/comat0zz/fvtt10_engine",
   "manifest": "https://github.com/comat0zz/fvtt10_engine/releases/latest/download/system.json",
-  "download": "https://github.com/comat0zz/fvtt10_engine/releases/latest/download/necrobiozz.zip"
+  "download": "https://github.com/comat0zz/fvtt10_engine/releases/latest/download/fvtt10_engine.zip"
 }

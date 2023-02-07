@@ -13,7 +13,7 @@ const itemMappingsSheets = {
  * Should be fairly empty, only containing functionality that all items should have regardless of type.
  * https://foundryvtt.wiki/en/development/guides/polymorphism-actors-items
  */
-export const ProxyItemSheet = new Proxy(function () {}, {
+export const CztItemSheet = new Proxy(function () {}, {
   //Will intercept calls to the "new" operator
   construct: function (target, args) {
     const [data] = args;

@@ -1,0 +1,25 @@
+{
+  "Actor": {
+    "types": [
+      "hero",
+      "enemy",
+      "npc"
+    ],
+    "templates": {
+      "baseActor": {
+        "description": "",
+        "items": [],
+        "skills": []
+      }
+    },
+    "hero": {
+      "templates": ["baseActor"]
+    },
+    "enemy": {
+      "templates": ["baseActor"]
+    },
+    "npc": {
+      "templates": ["baseActor"]
+    }
+  }
+}

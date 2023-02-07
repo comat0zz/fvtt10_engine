@@ -1,0 +1,25 @@
+{"CZT":{"Common":{
+  
+  "Title": "",
+  "SubTitle": "",
+  "DelConfirm": "Вы точно хотите удалить?",
+  "Description": "Описание",
+  "Select": {
+    "Yes": "Да",
+    "No": "Нет"
+  },
+  
+  "Buttons": {
+    "Okay": "Да",
+    "Cancel": "Отмена",
+    "Remove": "Удалить"     
+  },
+  
+  "Navs": {
+    "Properties": "Свойства",
+    "Description": "Описание",
+    "Skills": "Навыки",
+    "ForNotes": "Для заметок"
+  }
+
+}}}

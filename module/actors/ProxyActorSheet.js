@@ -13,7 +13,7 @@ const actorSheetMappings = {
  * Should be fairly empty, only containing functionality that all items should have regardless of type.
  * https://foundryvtt.wiki/en/development/guides/polymorphism-actors-items
  */
- export const ProxyActorSheet = new Proxy(function () {}, {
+ export const CztActorSheet = new Proxy(function () {}, {
   //Will intercept calls to the "new" operator
   construct: function (target, args) {
     const [data] = args;

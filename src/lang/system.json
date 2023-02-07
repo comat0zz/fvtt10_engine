@@ -1,0 +1,13 @@
+{
+  "ACTOR": {
+    "TypeHero": "Герой",
+    "TypeEnemy": "Противник",
+    "TypeNpc": "NPC"
+  },
+
+  "ITEM": {
+    "TypeWeapon": "Оружие",
+    "TypeArmor": "Броня",
+    "TypeEquipment": "Снаряжение"
+  }
+}

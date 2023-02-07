@@ -1,18 +1,17 @@
 {
-  "ACTOR": {
-    "TypeHero": "Герой",
-    "TypeEnemy": "Противник",
-    "TypeNpc": "NPC"
-  },
-
-  "ITEM": {
-    "TypeWeapon": "Оружие",
-    "TypeArmor": "Броня",
-    "TypeEquipment": "Снаряжение"
-  },
-
   "CZT": {
-    
+    "Actor": {
+      "NamePlaceholder": "Имя персонажа",
+      "Name": "Имя",
+      "Inventory": {
+        "itWeapons": "Оружие",
+        "itArmor": "Броня",
+        "itEquips": "Снаряжение",
+        "itNoWeapons": "Нет оружия",
+        "itNoArmor": "Нет брони",
+        "itNoEquips": "Нет снаряжения"
+      }
+    },
     "Common": {
       "Title": "",
       "SubTitle": "",
@@ -23,8 +22,9 @@
         "No": "Нет"
       },
       "Buttons": {
+        "Okay": "Да",
         "Cancel": "Отмена",
-        "Remove": "Удалить"     
+        "Remove": "Удалить"
       },
       "Navs": {
         "Properties": "Свойства",
@@ -33,41 +33,25 @@
         "ForNotes": "Для заметок"
       }
     },
-
-    "Rolls": {
-
-    },
-
-    "Actor": {
-      "NamePlaceholder": "Имя персонажа",
-      "Name": "Имя",
-
-      "Inventory": {
-        "itWeapons": "Оружие",
-        "itArmor": "Броня",
-        "itEquips": "Снаряжение",
-        "itNoWeapons": "Нет оружия",
-        "itNoArmor": "Нет брони",
-        "itNoEquips": "Нет снаряжения"
-      }
-    },
-
     "Item": {
       "NamePlaceholder": "Введите название",
       "Name": "Название",
-
-      "Weapon": {
-
-      },
-
-      "Armor": {
-
-      },
-
-      "Equipment": {
-        
-      }
+      "Weapon": {},
+      "Armor": {},
+      "Equipment": {}
+    },
+    "Rolls": {
+      "ReRoll": "Перебросить"
     }
-
+  },
+  "ACTOR": {
+    "TypeHero": "Герой",
+    "TypeEnemy": "Противник",
+    "TypeNpc": "NPC"
+  },
+  "ITEM": {
+    "TypeWeapon": "Оружие",
+    "TypeArmor": "Броня",
+    "TypeEquipment": "Снаряжение"
   }
 }

@@ -1,16 +1,16 @@
-import { BaseActorSheet } from "../BaseActorSheet.js";
-import { CztUtility } from "../../utils.js";
+import { BaseActorSheet } from "./BaseActorSheet.js";
+import { CztUtility } from "../utils.js";
 
 /**
  * Extend the base Actor document to support attributes and groups with a custom template creation dialog.
  * @extends {Actor}
  */
-export class NpcActorSheet extends BaseActorSheet {
+export class CztActorSheet extends BaseActorSheet {
 
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: [game.system.id, "sheet", "actor", "actor-npc"],
+      classes: [game.system.id, "sheet", "actor", "actor-simple"],
       width: 720,
       height: 800,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "properties"}]
@@ -42,17 +42,7 @@ export class NpcActorSheet extends BaseActorSheet {
     html.find('.sheet-item-del').click(evt => this._onActorItemDel(evt));
   }
 
-  async _extractItem(data) {
-
-    if(Object.keys(data).includes("pack") && data.pack != "") {
-      return await this._getDocumentByPack(data);
-    }else if(data.type == "Item"){
-      return game.items.get(data.id);
-    }else if(data.type == "Actor") {
-      return game.actors.get(data.id);
-    }
-  }
-
+ 
   async _onActorRollWeapon(evt) {
     evt.preventDefault();
     const weapon_id = $(evt.currentTarget).closest('tr').attr('item-id');
@@ -203,5 +193,5 @@ export class NpcActorSheet extends BaseActorSheet {
     items.push(newItem);
     this.actor.update({"system.items": items});
   }
-  
+
 }

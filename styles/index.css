@@ -1,55 +1,50 @@
-.sheet form .cursor-click {
-  cursor: pointer;
-}
-.sheet form input,
-.sheet form select {
-  background: none;
-  border: 1px solid transparent;
-}
-.sheet form table {
-  margin: 0;
-  border: 0;
-  background: none;
-  border-collapse: separate;
-  border-spacing: 2px;
-}
-.sheet form table td.table-line-img {
-  width: 30px;
-  height: 30px;
-}
-.sheet form table td.table-line-img img {
-  border: 0;
-}
-.sheet form table td.icon-trash {
-  width: 15px;
-}
-.sheet form .editor {
-  width: 100%;
-  height: 100%;
-}
-.sheet form ul {
-  margin-top: 0;
-  padding: 0;
-}
-.sheet form ul li {
-  list-style: none;
-  margin-left: 0;
-}
-/* Items Sheet */
-/* Actors Sheet */
-.actor.sheet .actor-info .actor-avatar {
-  width: 100px;
-  height: 100px;
-}
-.actor.sheet .actor-row {
+/* Reset bases */
+.window-content .czt-wrapper .czt-row,
+.message-content .czt-wrapper .czt-row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
 }
-.actor.sheet .actor-column {
+.window-content .czt-wrapper .czt-row .czt-column,
+.message-content .czt-wrapper .czt-row .czt-column {
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
 }
+.window-content div.editor,
+.message-content div.editor {
+  width: 100%;
+  height: 100%;
+}
+.window-content .czt-ul,
+.message-content .czt-ul,
+.window-content .czt-ol,
+.message-content .czt-ol {
+  margin-top: 0;
+  padding: 0;
+}
+.window-content .czt-ul li,
+.message-content .czt-ul li,
+.window-content .czt-ol li,
+.message-content .czt-ol li {
+  list-style: none;
+  margin-left: 0;
+}
+.window-content .czt-table tr,
+.message-content .czt-table tr {
+  background-color: inherit;
+}
+.window-content .czt-no-flex,
+.message-content .czt-no-flex {
+  flex: 0 0 auto;
+}
+@font-face {
+  font-family: 'PT Sans';
+  src: local('PT Sans'), local('PTSans-Regular'), url('./fonts/PTSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+/* Items Sheet */
+/* Actors Sheet */

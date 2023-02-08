@@ -1,16 +1,16 @@
-import { BaseActorSheet } from "../BaseActorSheet.js";
-import { CztUtility } from "../../utils.js";
+import { BaseActorSheet } from "../BaseActorSheet.mjs";
+import { CztUtility } from "../../utils.mjs";
 
 /**
  * Extend the base Actor document to support attributes and groups with a custom template creation dialog.
  * @extends {Actor}
  */
-export class EnemyActorSheet extends BaseActorSheet {
+export class HeroActorSheet extends BaseActorSheet {
 
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: [game.system.id, "sheet", "actor", "actor-enemy"],
+      classes: [game.system.id, "sheet", "actor", "actor-hero"],
       width: 720,
       height: 800,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "properties"}]
@@ -29,7 +29,7 @@ export class EnemyActorSheet extends BaseActorSheet {
     context.isEquip = context.systemData.items.filter((i) => i.type === "equipment");
     context.items = context.systemData.items;
 
-    console.log(context)
+    game.logger.log(context)
     return context;
   }
 
@@ -193,7 +193,7 @@ export class EnemyActorSheet extends BaseActorSheet {
     let items = this.actor.system.items;
 
     let newItem = {
-      "id": CztUtility.genId(),
+      "id": randomID(),
       "item_id": item_id,
       "name": item.name,
       "img": item.img,
@@ -203,5 +203,5 @@ export class EnemyActorSheet extends BaseActorSheet {
     items.push(newItem);
     this.actor.update({"system.items": items});
   }
-  
+
 }

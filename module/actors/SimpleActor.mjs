@@ -3,7 +3,7 @@ export class CztActor extends Actor {
   prepareBaseData() {
     // Data modifications in this step occur before processing embedded
     // documents or derived data.
-    console.log("prepareBaseData CztActor")
+    game.logger.info("prepareBaseData CztActor")
   }
 
   /** @override */
@@ -14,10 +14,10 @@ export class CztActor extends Actor {
     // prepareDerivedData().
     super.prepareData();
 
-    console.log("prepareData CztActor")
+    game.logger.info("prepareData CztActor")
   }
 
   prepareDerivedData() {
-    console.log("prepareDerivedData CztActor")
+    game.logger.info("prepareDerivedData CztActor")
   }
 };

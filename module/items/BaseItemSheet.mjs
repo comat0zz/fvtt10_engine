@@ -12,7 +12,7 @@ export class BaseItemSheet extends ItemSheet {
     context.systemData = context.data.system;
     context.config = CONFIG.CZT;
 
-    console.log(context)
+    game.logger.log(context)
     return context;
   }
 

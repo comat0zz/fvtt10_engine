@@ -3,7 +3,7 @@ export class NpcActor extends Actor {
   prepareBaseData() {
     // Data modifications in this step occur before processing embedded
     // documents or derived data.
-    console.log("prepareBaseData")
+    game.logger.log("prepareBaseData")
   }
 
   /** @override */
@@ -14,10 +14,10 @@ export class NpcActor extends Actor {
     // prepareDerivedData().
     super.prepareData();
 
-    console.log("prepareData")
+    game.logger.log("prepareData")
   }
 
   prepareDerivedData() {
-    console.log("prepareDerivedData")
+    game.logger.log("prepareDerivedData")
   }
 };

@@ -1,16 +1,16 @@
-import { BaseActorSheet } from "./BaseActorSheet.js";
-import { CztUtility } from "../utils.js";
+import { BaseActorSheet } from "../BaseActorSheet.mjs";
+import { CztUtility } from "../../utils.mjs";
 
 /**
  * Extend the base Actor document to support attributes and groups with a custom template creation dialog.
  * @extends {Actor}
  */
-export class CztActorSheet extends BaseActorSheet {
+export class NpcActorSheet extends BaseActorSheet {
 
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: [game.system.id, "sheet", "actor", "actor-simple"],
+      classes: [game.system.id, "sheet", "actor", "actor-npc"],
       width: 720,
       height: 800,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "properties"}]
@@ -29,7 +29,7 @@ export class CztActorSheet extends BaseActorSheet {
     context.isEquip = context.systemData.items.filter((i) => i.type === "equipment");
     context.items = context.systemData.items;
 
-    console.log(context)
+    game.logger.log(context)
     return context;
   }
 
@@ -42,7 +42,17 @@ export class CztActorSheet extends BaseActorSheet {
     html.find('.sheet-item-del').click(evt => this._onActorItemDel(evt));
   }
 
- 
+  async _extractItem(data) {
+
+    if(Object.keys(data).includes("pack") && data.pack != "") {
+      return await this._getDocumentByPack(data);
+    }else if(data.type == "Item"){
+      return game.items.get(data.id);
+    }else if(data.type == "Actor") {
+      return game.actors.get(data.id);
+    }
+  }
+
   async _onActorRollWeapon(evt) {
     evt.preventDefault();
     const weapon_id = $(evt.currentTarget).closest('tr').attr('item-id');
@@ -183,7 +193,7 @@ export class CztActorSheet extends BaseActorSheet {
     let items = this.actor.system.items;
 
     let newItem = {
-      "id": CztUtility.genId(),
+      "id": randomID(),
       "item_id": item_id,
       "name": item.name,
       "img": item.img,
@@ -193,5 +203,5 @@ export class CztActorSheet extends BaseActorSheet {
     items.push(newItem);
     this.actor.update({"system.items": items});
   }
-
+  
 }

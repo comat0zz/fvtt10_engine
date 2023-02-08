@@ -1,6 +1,6 @@
-import { HeroActorSheet } from "./sheets/HeroActorSheet.js";
-import { EnemyActorSheet } from "./sheets/EnemyActorSheet.js";
-import { NpcActorSheet } from "./sheets/NpcActorSheet.js";
+import { HeroActorSheet } from "./sheets/HeroActorSheet.mjs";
+import { EnemyActorSheet } from "./sheets/EnemyActorSheet.mjs";
+import { NpcActorSheet } from "./sheets/NpcActorSheet.mjs";
 
 const actorSheetMappings = {
   hero: HeroActorSheet, 

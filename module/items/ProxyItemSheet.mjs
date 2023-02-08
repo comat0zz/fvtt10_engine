@@ -1,11 +1,11 @@
-import { WeaponItem } from "./types/WeaponItem.js";
-import { ArmorItem } from "./types/ArmorItem.js";
-import { EquipmentItem } from "./types/EquipmentItem.js";
+import { WeaponItemSheet } from "./sheets/WeaponItemSheet.mjs";
+import { ArmorItemSheet } from "./sheets/ArmorItemSheet.mjs";
+import { EquipmentItemSheet } from "./sheets/EquipmentItemSheet.mjs";
 
-const itemMappings = {
-  weapon: WeaponItem, 
-  armor: ArmorItem, 
-  equipment: EquipmentItem, 
+const itemMappingsSheets = {
+  weapon: WeaponItemSheet, 
+  armor: ArmorItemSheet, 
+  equipment: EquipmentItemSheet, 
 }
 
 /**
@@ -13,17 +13,17 @@ const itemMappings = {
  * Should be fairly empty, only containing functionality that all items should have regardless of type.
  * https://foundryvtt.wiki/en/development/guides/polymorphism-actors-items
  */
-export const CztItem = new Proxy(function () {}, {
+export const CztItemSheet = new Proxy(function () {}, {
   //Will intercept calls to the "new" operator
   construct: function (target, args) {
     const [data] = args;
 
     //Handle missing mapping entries
-    if (!itemMappings.hasOwnProperty(data.type))
+    if (!itemMappingsSheets.hasOwnProperty(data.type))
       throw new Error("Unsupported Entity type for create(): " + data.type);
 
     //Return the appropriate, actual object from the right class
-    return new itemMappings[data.type](...args);
+    return new itemMappingsSheets[data.type](...args);
   },
 
   //Property access on this weird, dirty proxy object
@@ -38,16 +38,16 @@ export const CztItem = new Proxy(function () {}, {
             return data.map(i => Item.create(i, options));
           }
 
-          if (!itemMappings.hasOwnProperty(data.type))
+          if (!itemMappingsSheets.hasOwnProperty(data.type))
             throw new Error("Unsupported Entity type for create(): " + data.type);
 
-          return itemMappings[data.type].create(data, options);
+          return itemMappingsSheets[data.type].create(data, options);
         };
 
       case Symbol.hasInstance:
         //Applying the "instanceof" operator on the instance object
         return function (instance) {
-          return Object.values(itemMappings).some(i => instance instanceof i);
+          return Object.values(itemMappingsSheets).some(i => instance instanceof i);
         };
 
       default:

@@ -1,11 +1,11 @@
-import { WeaponItemSheet } from "./sheets/WeaponItemSheet.js";
-import { ArmorItemSheet } from "./sheets/ArmorItemSheet.js";
-import { EquipmentItemSheet } from "./sheets/EquipmentItemSheet.js";
+import { HeroActor } from "./types/HeroActor.mjs";
+import { EnemyActor } from "./types/EnemyActor.mjs";
+import { NpcActor } from "./types/NpcActor.mjs";
 
-const itemMappingsSheets = {
-  weapon: WeaponItemSheet, 
-  armor: ArmorItemSheet, 
-  equipment: EquipmentItemSheet, 
+const actorMappings = {
+  hero: HeroActor, 
+  enemy: EnemyActor, 
+  npc: NpcActor
 }
 
 /**
@@ -13,17 +13,17 @@ const itemMappingsSheets = {
  * Should be fairly empty, only containing functionality that all items should have regardless of type.
  * https://foundryvtt.wiki/en/development/guides/polymorphism-actors-items
  */
-export const CztItemSheet = new Proxy(function () {}, {
+export const CztActor = new Proxy(function () {}, {
   //Will intercept calls to the "new" operator
   construct: function (target, args) {
     const [data] = args;
 
     //Handle missing mapping entries
-    if (!itemMappingsSheets.hasOwnProperty(data.type))
+    if (!actorMappings.hasOwnProperty(data.type))
       throw new Error("Unsupported Entity type for create(): " + data.type);
 
     //Return the appropriate, actual object from the right class
-    return new itemMappingsSheets[data.type](...args);
+    return new actorMappings[data.type](...args);
   },
 
   //Property access on this weird, dirty proxy object
@@ -34,25 +34,25 @@ export const CztItemSheet = new Proxy(function () {}, {
         //Calling the class' create() static function
         return function (data, options) {
           if (data.constructor === Array) {
-            //Array of data, this happens when creating Items imported from a compendium
-            return data.map(i => Item.create(i, options));
+            //Array of data, this happens when creating Actors imported from a compendium
+            return data.map(i => Actor.create(i, options));
           }
 
-          if (!itemMappingsSheets.hasOwnProperty(data.type))
+          if (!actorMappings.hasOwnProperty(data.type))
             throw new Error("Unsupported Entity type for create(): " + data.type);
 
-          return itemMappingsSheets[data.type].create(data, options);
+          return actorMappings[data.type].create(data, options);
         };
 
       case Symbol.hasInstance:
         //Applying the "instanceof" operator on the instance object
         return function (instance) {
-          return Object.values(itemMappingsSheets).some(i => instance instanceof i);
+          return Object.values(actorMappings).some(i => instance instanceof i);
         };
 
       default:
-        //Just forward any requested properties to the base Item class
-        return Item[prop];
+        //Just forward any requested properties to the base Actor class
+        return Actor[prop];
     }
   },
 

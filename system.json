@@ -15,7 +15,7 @@
     }
   ],
   "esmodules": [
-    "module/index.js"
+    "module/index.mjs"
   ],
   "styles": [
     "styles/index.css"

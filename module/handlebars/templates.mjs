@@ -15,7 +15,7 @@ export const preloadHandlebarsTemplates = async function () {
     ],
     "Dialogs": [
       "dialogs/modify-attrs-roll.hbs",
-      "dialogs/sheet-item-del.hbs"
+      "dialogs/actor-item-remove.hbs"
     ],
     "Chats": [
       "chats/weapon-roll.hbs",

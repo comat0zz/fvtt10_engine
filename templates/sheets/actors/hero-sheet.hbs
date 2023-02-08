@@ -33,13 +33,13 @@
   
           <h3>{{localize "CZT.Actor.Inventory.itEquips"}}</h3>
           
-          <table class="actor-items-equipment">
+          <table class="actor-items-equipment ">
             {{#each items as |item key|}}
-              <tr item-id="{{item.id}}" item-type="{{item.type}}" class="cursor-click">
+              <tr item-id="{{item._id}}" item-type="{{item.type}}" class="actor-items-single cursor-click">
                 <td class="table-line-img"><img src="{{item.img}}" alt="{{item.name}}"></td>
                 <td class="sheet-roll-weapon">{{item.name}}</td>
                 <td></td>
-                <td class="icon-trash"><i class="fa-solid fa-trash sheet-item-del"></i></td>
+                <td class="icon-trash"><i class="fa-solid fa-trash actor-item-remove"></i></td>
               </tr>
             {{else}}
               <tr><td>{{localize "CZT.Actor.Inventory.itNoEquips"}}</td></tr>

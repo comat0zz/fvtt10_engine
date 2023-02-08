@@ -40,6 +40,23 @@
 .message-content .czt-no-flex {
   flex: 0 0 auto;
 }
+.window-content .czt-style-bold-italic,
+.message-content .czt-style-bold-italic {
+  font-weight: bold;
+  font-style: italic;
+}
+.window-content .czt-style-center,
+.message-content .czt-style-center {
+  text-align: center;
+}
+.window-content .czt-margin-bottom,
+.message-content .czt-margin-bottom {
+  margin-bottom: 3px;
+}
+.window-content .czt-float-left,
+.message-content .czt-float-left {
+  float: left;
+}
 @font-face {
   font-family: 'PT Sans';
   src: local('PT Sans'), local('PTSans-Regular'), url('./fonts/PTSans-Regular.ttf') format('truetype');

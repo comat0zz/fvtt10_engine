@@ -1,5 +1,6 @@
 import { BaseActorSheet } from "./BaseActorSheet.mjs";
 
+
 /**
  * Extend the base Actor document to support attributes and groups with a custom template creation dialog.
  * @extends {Actor}
@@ -23,10 +24,9 @@ export class CztActorSheet extends BaseActorSheet {
     context.systemData = context.data.system;
     context.config = CONFIG.CZT;
 
-    context.isWeapons = context.systemData.items.filter((i) => i.type === "weapon");
-    context.isArmor = context.systemData.items.filter((i) => i.type === "armor");
-    context.isEquip = context.systemData.items.filter((i) => i.type === "equipment");
-    context.items = context.systemData.items;
+    context.isWeapons = context.items.filter((i) => i.type === "weapon");
+    context.isArmor = context.items.filter((i) => i.type === "armor");
+    context.isEquip = context.items.filter((i) => i.type === "equipment");
 
     game.logger.log(context)
     return context;
@@ -38,14 +38,14 @@ export class CztActorSheet extends BaseActorSheet {
     html.find('.sheet-roll-weapon').click(evt => this._onActorRollWeapon(evt));
     html.find('.sheet-roll-attrs').click(evt => this._onActorRollAttrs(evt));
 
-    html.find('.sheet-item-del').click(evt => this._onActorItemDel(evt));
+    
   }
 
  
   async _onActorRollWeapon(evt) {
     evt.preventDefault();
     const weapon_id = $(evt.currentTarget).closest('tr').attr('item-id');
-    const item = this.actor.system.items.filter((i) => i.type === "weapon" && i.id == weapon_id);
+    const item = this.actor.items.filter((i) => i.type === "weapon" && i.id == weapon_id);
     const oItem = game.items.get(item[0].item_id);
     
     let roll = await new Roll(item[0].formula).roll({async: true});
@@ -124,73 +124,6 @@ export class CztActorSheet extends BaseActorSheet {
       }
       new Dialog(data, null).render(true);
     });
-  }
-
-  // Удаление предметов из инвентаря персонажа
-  async _onActorItemDelConfirm(item_id, html) {
-    var items = duplicate(this.actor.system.items);
-
-    let newEquips = [];
-
-    items.forEach(el => {
-      if(el.id !== item_id) {
-        newEquips.push(el);
-      }
-    });
-
-    this.actor.update({"system.items": newEquips});
-  }
-
-  async _onActorItemDel(evt) {
-    evt.preventDefault();
-    const item_id = $(evt.currentTarget).closest('tr').attr('item-id');
-
-    const tpl = await renderTemplate(`${game.system_path}/templates/dialogs/sheet-item-del.hbs`);
-    return new Promise(resolve => {
-      const data = {
-        title: game.i18n.localize("CZT.Common.DelConfirm"),
-        content: tpl,
-        buttons: {
-          cancel: {
-            icon: '<i class="fas fa-times"></i>',
-            label: game.i18n.localize("CZT.Common.Buttons.Cancel"),
-            callback: html => resolve({cancelled: true})
-          },
-          yes: {
-            icon: '<i class="fas fa-check"></i>',
-            label: game.i18n.localize("CZT.Common.Buttons.Remove"),
-            callback: html => resolve(this._onActorItemDelConfirm(item_id, html))
-           }        
-        },
-        default: "cancel",
-        close: () => resolve({cancelled: true})
-      }
-      new Dialog(data, null).render(true);
-    });
-    
-  }
-
-  /** @override */
-  _onDrop(evt) { 
-    evt.preventDefault();
-    const dragData = JSON.parse(evt.dataTransfer.getData("text/plain"));
-
-    if(dragData.type != "Item") return;
-
-    var item_id = dragData.uuid.replace("Item.", "");
-    var item =  game.items.get(item_id);
-    let items = this.actor.system.items;
-
-    let newItem = {
-      "id": randomID(),
-      "item_id": item_id,
-      "name": item.name,
-      "img": item.img,
-      "type": item.type
-    };
-
-    items.push(newItem);
-    this.actor.update({"system.items": items});
   }
 
 }

@@ -1,17 +1,17 @@
 <form class="{{cssClass}}" autocomplete="off">
 {{!-- Sheet Header --}}
-<div class="actor-wrapper actor-info">
-  <div class="actor-row">
-    <div class="actor-column">
+<div class="sheet-header czt-wrapper actor-info">
+  <div class="czt-row">
+    <div class="czt-column">
         <img class="actor-avatar" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
     </div>
-    <div class="actor-column">
+    <div class="czt-column">
       <ul>
         <li>{{localize 'CZT.Common.Title'}}</li>
         <li>{{localize 'CZT.Common.SubTitle'}}</li>
       </ul>
     </div>
-    <div class="actor-column">
+    <div class="czt-column">
       <input name="name" type="text" value="{{data.name}}" placeholder="{{localize "CZT.Actor.NamePlaceholder"}}" />
     </div>
   </div>
@@ -24,41 +24,40 @@
 </nav>
 {{!-- Sheet Body --}}
 <section class="sheet-body">
-  
   {{!-- Properties Tab --}}
   <div class="tab properties" data-group="primary" data-tab="properties">
-    <div class="actor-wrapper">
-      <div class="actor-row">
-        <div class="actor-column">
+    <div class="czt-wrapper">
+      <div class="czt-row">
+        <div class="czt-column">
   
           <h3>{{localize "CZT.Actor.Inventory.itEquips"}}</h3>
           
-          <table class="actor-items-equipment ">
+          <table class="actor-items-equipment czt-table">
             {{#each items as |item key|}}
               <tr item-id="{{item._id}}" item-type="{{item.type}}" class="actor-items-single cursor-click">
                 <td class="table-line-img"><img src="{{item.img}}" alt="{{item.name}}"></td>
-                <td class="sheet-roll-weapon">{{item.name}}</td>
+                <td class="table-line-name sheet-roll-weapon">{{item.name}}</td>
                 <td></td>
-                <td class="icon-trash"><i class="fa-solid fa-trash actor-item-remove"></i></td>
+                <td class="table-line-control icon-trash"><i class="fa-solid fa-trash actor-item-remove"></i></td>
               </tr>
             {{else}}
               <tr><td>{{localize "CZT.Actor.Inventory.itNoEquips"}}</td></tr>
             {{/each}}
           </table>
-         
+        </div>
       </div>
     </div>
   </div>
 
   {{!-- Skills Tab --}}
   <div class="tab skills" data-group="primary" data-tab="skills">
-    <div class="actor-wrapper">
-      <div class="actor-row">
-        <div class="actor-column">
+    <div class="czt-wrapper">
+      <div class="czt-row">
+        <div class="czt-column">
           <h3>{{localize "CZT.Item.Name"}} 1</h3>
         
         </div>
-        <div class="actor-column">
+        <div class="czt-column">
           <h3>{{localize "CZT.Item.Name"}} 2</h3>
           
         </div>

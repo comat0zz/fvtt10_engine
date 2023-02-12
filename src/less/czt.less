@@ -15,10 +15,11 @@
       }
     }
   }
-
+  
   div.editor{
+    flex: 0 0 auto;
     width: 100%;
-    height: 100%;
+    height: 300px;
   }
 
   .czt-ul, .czt-ol {
@@ -32,8 +33,33 @@
   }
 
   .czt-table {
+    background: unset;
+    margin: 0;
+    border: none;
+    
     tr {
-      background-color: inherit;
+      background-color: unset;
+    }
+
+    .table-line-img {
+      width: 45px;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    
+    .table-line-name {
+      padding-left: 3px;
+    }
+    
+    .table-line-control {
+      width: 30px;
+
+      i.fa-trash {
+        cursor: pointer;
+      }
+      
     }
   }
 
